@@ -1,0 +1,14 @@
+{
+  "name": "trabalho-pgats",
+  "version": "1.0.0",
+  "description": "Trabalho da disciplina de Programação para Automação de Testes",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/**/*.test.js"
+  },
+  "author": "Roventini, Elián",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^10.4.0"
+  }
+}
