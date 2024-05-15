@@ -12,12 +12,24 @@ function existeTexto(listaTextos, textoPesquisado) {
     const quantidadeDeTextos = listaTextos.length;
 
     for (let indice = 0; indice < quantidadeDeTextos; indice++) {
-        if (listaTextos[indice] == textoPesquisado) {
+        if (listaTextos[indice].nome == textoPesquisado) {
             return true;
         } 
     }
 
     return false;
+}
+
+function precoFerramenta(listaFerramentas, textoPesquisado) {
+    const quantidadeDeTextos = listaFerramentas.length;
+
+    for (let indice = 0; indice < quantidadeDeTextos; indice++) {
+        if (listaFerramentas[indice].nome == textoPesquisado) {
+            return listaFerramentas[indice].preco;
+        } 
+    }
+
+    return 0;
 }
 
 const calcularTotal = (ferramentas, comprar) => {
@@ -28,17 +40,17 @@ const calcularTotal = (ferramentas, comprar) => {
     let preco = 0;
     let nomes = [];
     let flag = false;
-    for (let i = 0; i < ferramentas.length; i++) {
-        flag = existeTexto(comprar,ferramentas[i].nome);
+    for (let i = 0; i < comprar.length; i++) {
+        flag = existeTexto(ferramentas, comprar[i]);
 
         if (flag) {
-            preco += ferramentas[i].preco;
-            nomes.push(ferramentas[i].nome);
+            preco += precoFerramenta(ferramentas, comprar[i]);
+            nomes.push(comprar[i]);
         }
     }
 
 
-    if (!flag && preco == 0) {
+    if (!flag && preco == 0 && nomes == '') {
         throw new Error("Nenhuma ferramenta desejada encontrada.");
     }
     
