@@ -13,9 +13,6 @@ jobs:
         uses: actions/checkout@v3
         with:
           node-version: '20'  # Especifica o Node.js 20 para o checkout
-
-      - name: Iniciando Node
-        run: npm init
         
       - name: Instalando Mocha
         run: npm install -D mocha
