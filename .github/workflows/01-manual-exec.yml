@@ -1,6 +1,7 @@
 name: "Execução Manual"
 
 on:
+  # Gatilho manual
   workflow_dispatch:
 
 jobs:
@@ -8,14 +9,12 @@ jobs:
     #Máquina que executará o job
     runs-on: ubuntu-latest
 
+    #Passo a passo do job
     steps:
-      - name: Iniciando Node
-        uses: actions/checkout@v4
-        with:
-          node-version: '20'  # Especifica o Node.js 20 para o checkout
-        
+      - uses: actions/checkout@v4
+      
       - name: Instalando Mocha
         run: npm install -D mocha
-        
+  
       - name: Rodando os testes
         run: npm test
